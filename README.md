@@ -1,7 +1,5 @@
 # Chatroom
 
-Projet full React.
-
 Projet fictif React. 
 
 Utilsation de Redux et plus particulièrement React-Redux. 
