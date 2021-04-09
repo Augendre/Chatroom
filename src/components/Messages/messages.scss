@@ -1,0 +1,62 @@
+@import 'src/styles/vars';
+
+.messages {
+  padding: 2rem;
+  overflow: auto;
+  // hauteur : tout la fenêtre moins l'input de saisie
+  height: calc(100vh - 4rem);
+  padding-top: 5em;
+
+  .message {
+    margin-bottom: 2em;
+    position: relative;
+
+    &:not(.message--own) {
+      padding-left: 1.2em;
+    }
+
+    &__author {
+      padding-left: 1.2em;
+    }
+
+    &__content {
+      background-color: $messageBackground;
+      color: $lightColor;
+      display: inline-block;
+      margin-top: 0.8em;
+      padding: 0.8em 1.3em;
+      border-radius: 1.2rem;
+
+      // triangle en CSS : https://css-tricks.com/snippets/css/css-triangle/
+      // https://outils-css.aliasdmc.fr/generateur-de-triangles-css.php
+
+      &::before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-bottom: 10px solid $messageBackground;
+        border-right: 10px solid transparent;
+        border-left: none;
+        position: absolute;
+        margin-top: -1.4em;
+      }
+    }
+
+    &.message--own {
+      text-align: right;
+
+      .message__author {
+        padding-right: 1.2em;
+      }
+
+      .message__content {
+
+        &::before{
+          right: 1.8em;
+          border-left: 10px solid transparent;
+          border-right: none;
+        }
+      }
+    }
+  }
+}
